@@ -1,13 +1,13 @@
-const recipes = require("./recipes");
-const routesAPI = require("./routesAPI");
+const recipesRoutes = require("./recipes");
+const usersRoutes = require("./users");
 
 const constructorMethod = (app) => {
 
-    app.use('/recipes', recipes);
+    app.use("/recipes", recipesRoutes);
 
-    app.use("/", routesAPI);
+    app.use("/", usersRoutes);
 
-    app.use('*', (req, res) => {
+    app.use("*", (req, res) => {
         res.status(404).send("Page not found");
     });
 };
